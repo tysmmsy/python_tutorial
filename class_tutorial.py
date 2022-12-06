@@ -42,3 +42,24 @@ class Stock:
                     print("個数が足りません")
         if flag == False:
             print(f"{product.name}が存在しません")
+
+    def print_info(self, *target):
+        print("-" * 90)
+        if len(target) > 0:
+            for i in target:
+                flag = False
+                for j in self.items_list:
+                    if i == j.name:
+                        flag = True
+                        j.show()
+                if flag == False:
+                    print(f"{name}は存在ません")
+        else:
+            for i in self.items_list:
+                i.show()
+            total_product = len(self.items_list)
+            total_worth = 0
+            for item in self.items_list:
+                total_worth += item.worth
+            print(f"商品種類数: {product}\n 在庫合計数:{worth}")
+            print("-" * 90)
