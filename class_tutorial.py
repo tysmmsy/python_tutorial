@@ -8,7 +8,7 @@ class Product:
 
     def show(self):
         print(
-            f"ID:{id}\t 商品:{name}\t 個数:{quantity}\t 価格:{price}\t 総額(価格*個数):{worth}\t"
+            f"ID:{id}\t 商品:{self.name}\t 個数:{self.quantity}\t 価格:{self.price}\t 総額(価格*個数):{self.worth}\t"
         )
 
 
@@ -26,7 +26,7 @@ class Stock:
                 break
         if flag == False:
             self.items_list.append(product)
-        print(f"{name}{quantity}個追加しました")
+        print(f"{i.name}{i.quantity}個追加しました")
 
     def delete(self, product):
         flag = False
@@ -36,7 +36,7 @@ class Stock:
                 if i.quantity >= product.quantity:
                     i.quantity -= product.quantity
                     i.worth -= product.worth
-                    print(f"{name}{quantity}個減少しました")
+                    print(f"{i.name}{i.quantity}個減少しました")
                     break
                 else:
                     print("個数が足りません")
@@ -53,7 +53,7 @@ class Stock:
                         flag = True
                         j.show()
                 if flag == False:
-                    print(f"{name}は存在ません")
+                    print(f"{item.name}は存在ません")
         else:
             for i in self.items_list:
                 i.show()
@@ -61,5 +61,5 @@ class Stock:
             total_worth = 0
             for item in self.items_list:
                 total_worth += item.worth
-            print(f"商品種類数: {product}\n 在庫合計数:{worth}")
+            print(f"商品種類数: {item.product}\n 在庫合計数:{item.worth}")
             print("-" * 90)
