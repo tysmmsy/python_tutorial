@@ -63,3 +63,12 @@ class Stock:
                 total_worth += item.worth
             print(f"商品種類数: {item.product}\n 在庫合計数:{item.worth}")
             print("-" * 90)
+
+    def sort_stock(self, k = 'quantity', r = False):
+        if k == 'quantity':
+            sorted_stock = sorted(self.items_list, key = lambda x: x.quantity, reverse = r)
+        elif == 'worth':
+            sorted_stock = sorted(self.items_list, key = lambda x: x.worth, reverse = r)
+        for i in sorted_stock:
+            i.show()
+        print('-' * 90)
