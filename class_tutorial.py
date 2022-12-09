@@ -26,7 +26,7 @@ class Stock:
                 break
         if flag == False:
             self.items_list.append(product)
-        print(f"{i.name}{i.quantity}個追加しました")
+        print(f"{product.name}{product.quantity}個追加しました")
 
     def delete(self, product):
         flag = False
@@ -36,7 +36,7 @@ class Stock:
                 if i.quantity >= product.quantity:
                     i.quantity -= product.quantity
                     i.worth -= product.worth
-                    print(f"{i.name}{i.quantity}個減少しました")
+                    print(f"{product.name}{product.quantity}個減少しました")
                     break
                 else:
                     print("個数が足りません")
@@ -64,11 +64,26 @@ class Stock:
             print(f"商品種類数: {item.product}\n 在庫合計数:{item.worth}")
             print("-" * 90)
 
-    def sort_stock(self, k = 'quantity', r = False):
-        if k == 'quantity':
-            sorted_stock = sorted(self.items_list, key = lambda x: x.quantity, reverse = r)
-        elif k == 'worth':
-            sorted_stock = sorted(self.items_list, key = lambda x: x.worth, reverse = r)
+    def sort_stock(self, k="quantity", r=False):
+        if k == "quantity":
+            sorted_stock = sorted(
+                self.items_list, key=lambda x: x.quantity, reverse=r
+            )
+        elif k == "worth":
+            sorted_stock = sorted(
+                self.items_list, key=lambda x: x.worth, reverse=r
+            )
         for i in sorted_stock:
             i.show()
-        print('-' * 90)
+        print("-" * 90)
+
+
+s = Stock()
+s.add(Product(1001, "apple", 20, 200))
+s.add(Product(1002, "pear", 5, 300))
+s.delete(Product(1001, "apple", 10, 200))
+s.add(Product(1003, "orange", 30, 100))
+s.add(Product(1004, "banana", 25, 50))
+s.delete(Product(1001, "orange", 10, 200))
+s.add(Product(1005, "milk", 35, 100))
+s.add(Product(1006, "ice", 50, 200))
