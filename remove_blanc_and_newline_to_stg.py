@@ -7,4 +7,11 @@ print(str1.rstrip())
 str2 = "\nTest\nPython\nProgram"
 print(str2)
 print("---")
-print(str2.strip("\n"))
+print(str2.replace("\n", ""))
+print("---")
+print(str2.replace("\n", "", 1))
+
+print(str1.replace(" ", ""))
+
+print(str1.split())
+print(str2.split())
