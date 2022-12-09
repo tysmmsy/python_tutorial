@@ -61,7 +61,7 @@ class Stock:
             total_worth = 0
             for item in self.items_list:
                 total_worth += item.worth
-            print(f"商品種類数: {item.product}\n 在庫合計数:{item.worth}")
+            print(f"商品種類数: {total_product}\n 在庫合計数:{total_worth}")
             print("-" * 90)
 
     def sort_stock(self, k="quantity", r=False):
@@ -78,6 +78,7 @@ class Stock:
         print("-" * 90)
 
 
+# check 1
 s = Stock()
 s.add(Product(1001, "apple", 20, 200))
 s.add(Product(1002, "pear", 5, 300))
@@ -87,3 +88,12 @@ s.add(Product(1004, "banana", 25, 50))
 s.delete(Product(1001, "orange", 10, 200))
 s.add(Product(1005, "milk", 35, 100))
 s.add(Product(1006, "ice", 50, 200))
+
+# check 2
+s.print_info()
+
+# check 3
+s.sort_stock("quantity", False)
+
+# check 4
+s.sort_stock("worth", True)
